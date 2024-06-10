@@ -1,0 +1,29 @@
+if we have an empty matrix:
+zero_matrix = [[0 for _ in range (len(matrix[0]))] for _ in range(len(matrix))] 
+zero_matrix = [[0 * (len(matrix[0]))] for _ in range(len(matrix))] 
+
+copy the above matrix 
+copied_matrix = [row[:] for row in matrix]
+
+
+matrix ds is used when we want to store data in the form of table or grid.
+array of arrays where array at each index has the same size.
+x[i][j]
+
+
+
+Applications:
+- linear algebra
+- statistics
+- optimization
+- signal processing such as filtering and transformation
+- Network Analsisi: such as finding the shortest path between two nodes or two networks
+- Quantum Mechanics: to represent states and operations
+
+
+Declaration of the matrix:
+numRows = 3
+numCols = 3
+
+arr = [[0] * numCols]*numRows
+print(arr)
