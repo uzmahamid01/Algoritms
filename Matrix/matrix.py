@@ -72,4 +72,65 @@ for i in range(len(arr2)):
 sortRow(arr2)
 
 
+#sorting column wise: sort each column of a matrix in ascending order
+#Approach:
+# /*
+# 1. traverse through the matrix
+# 2. find the transpose of the matrix
+# 3. store the transpose in new Matrix
+# 4. travers the rows of the Matrix[new one]
+# 5. sort each row of the matrix using sort function
+# 6. store the transpose of new into old Matrix
+# 7. print the matrix
 
+# ideal way:
+# create three funtions 
+# one for transpose 
+# one for RowSort
+# one for colSort
+# then the main function
+# */
+
+print("------------------------------------------------")
+def transpose(matrix, rows, cols):
+    # Create a new matrix with transposed dimensions
+    new_matrix = [[0 for _ in range(rows)] for _ in range(cols)]
+    
+    # Transpose the matrix
+    for i in range(rows):
+        for j in range(cols):
+            new_matrix[j][i] = matrix[i][j]
+    
+    return new_matrix
+
+def sort_rows(matrix):
+    # Sort each row of the matrix
+    for row in matrix:
+        row.sort()
+    return matrix
+
+def sort_columns(matrix, rows, cols):
+    # Transpose the matrix, sort the rows (which are the original columns), and then transpose back
+    transposed_matrix = transpose(matrix, rows, cols)
+    sorted_transposed_matrix = sort_rows(transposed_matrix)
+    sorted_matrix = transpose(sorted_transposed_matrix, cols, rows)
+    
+    # Print the sorted matrix
+    for row in sorted_matrix:
+        print(" ".join(map(str, row)))
+
+if __name__ == '__main__':
+    # Input matrix
+    matrix = [
+        [1, 6, 10],
+        [8, 5, 9],
+        [9, 4, 15],
+        [7, 3, 60]
+    ]
+    
+    # Get the number of rows and columns
+    rows = len(matrix)
+    cols = len(matrix[0])
+    
+    # Sort the matrix by columns
+    sort_columns(matrix, rows, cols)
