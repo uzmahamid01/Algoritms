@@ -134,3 +134,12 @@ if __name__ == '__main__':
     
     # Sort the matrix by columns
     sort_columns(matrix, rows, cols)
+
+
+
+#adjoint and inverse of matrix
+
+
+
+
+#determinant of matrix

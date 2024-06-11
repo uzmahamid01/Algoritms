@@ -27,3 +27,16 @@ numCols = 3
 
 arr = [[0] * numCols]*numRows
 print(arr)
+
+
+advantages of using matrix:
+- helps in 2D visualization
+- random access to items 
+- easy to implement
+
+
+disadvantages:
+- space inefficient
+- insertion and deletion operations are expensive
+- resizing as well
+- matrix size is fixed
