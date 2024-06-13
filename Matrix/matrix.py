@@ -136,21 +136,117 @@ if __name__ == '__main__':
     sort_columns(matrix, rows, cols)
 
 
-
+N = 4
 #adjoint and inverse of matrix
 def adjoinT(A):
     N = len(A)
     # adj = [[0 for _ in range(N)] for _ in range(N)]
-    adj = [row[:] for row in A]
+    adj = [[0 for _ in range(N)] for _ in range(N)]
     # print("")
     # print("copied adjoint: ", adj )
 
-def getCofactor(A):
-    for rown in range(n   )
+
+    #Base Case
+    if(len(A) == 1):
+        adj[0][0] = 1
+        return
+
+    sign = 1
+    temp = []
+
+    temp = [[0 for _ in range(N)] for _ in range(N)]
+
+    #print("temp = ", temp)
+
+
+    for i in range(N):
+        for j in range(N):
+            x = getCofactor(A, temp, i, j, N)
+            #print(x)
+
+            sign = (-1) ** (i + j)
+
+            adj[i][j] = (sign) *(determinant(temp, N-1))
+
+    return adj
+  
+
+def getCofactor(A, temp, p, q, n):
+    i =0
+    j=0
+    for row in range(n):
+        for col in range(n):
+            if (row != p and col != q):
+                temp[i][j] = A[row][col]
+                j+=1
+
+                if (j ==  n-1):
+                    j = 0
+                    i += 1
+
+
+def determinant(A, N):
+    
+    D = 0
+
+    if (N == 1):
+        return A[0][0]
+
+    temp = []
+    for i in range(N):
+        temp.append([None for _ in range(N)])
+
+    sign = 1
+
+    for f in range(N):
+        getCofactor(A, temp, 0, f, N)
+
+        D += sign * A[0][f]* determinant(temp,N-1)
+
+
+        sign = - sign 
+
+    return D
+
+
+def inverse(A):
+
+    det = determinant(A, N)
+    if (det == 0):
+        return False
+
+    adj = adjoinT(A)
+    inv = [[0 for _ in range(N)] for _ in range(N)]
+
+    for i in range(N):
+        for j in range(N):
+            inv[i][j] = adj[i][j]/ det
+
+    return inv
+
 
 
 
 
 A = [[5, -2, 2, 7], [1, 0, 0, 3], [-3, 1, 5, 0], [3, -1, -9, 4]]
-adjoinT(A)
-#determinant of matrix
+Adj = adjoinT(A)
+
+# Calculate the determinant of A
+det = determinant(A, len(A))
+
+# Print the adjoint and determinant of matrix A
+print("Adjoint of the matrix:")
+for row in Adj:
+    print(row)
+    print("")
+print(f"Determinant of the matrix: {det}")
+print("")
+inv_A = inverse(A)
+
+# Print the inverse of matrix A
+if inv_A:
+    print("Inverse of the matrix:")
+    for row in inv_A:
+        print(row)
+else:
+    print("Inverse of the matrix does not exist.")
