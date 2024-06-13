@@ -138,8 +138,19 @@ if __name__ == '__main__':
 
 
 #adjoint and inverse of matrix
+def adjoinT(A):
+    N = len(A)
+    # adj = [[0 for _ in range(N)] for _ in range(N)]
+    adj = [row[:] for row in A]
+    # print("")
+    # print("copied adjoint: ", adj )
+
+def getCofactor(A):
+    for rown in range(n   )
 
 
 
 
+A = [[5, -2, 2, 7], [1, 0, 0, 3], [-3, 1, 5, 0], [3, -1, -9, 4]]
+adjoinT(A)
 #determinant of matrix
