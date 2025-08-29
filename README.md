@@ -4,10 +4,12 @@ This repository contains Python solutions to coding interview practice problems,
 
 ### Data Structures and Algorithms
 [leetcode/problems](https://leetcode.com/problems)
+
 [neetcode/practice](https://neetcode.io/practice?tab=blind75)
 
 ### System Design
 [hellointerview/practice](https://www.hellointerview.com/learn/system-design/in-a-hurry/introduction)
+
 [neetcode/practicesys
 ](https://neetcode.io/practice?tab=systemDesign)
 
@@ -16,3 +18,4 @@ This repository contains Python solutions to coding interview practice problems,
 
 
 ### Misc
+
